@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Altan Vural İç Mimarlık</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Başlık ve Menü -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="images/altanlogo.jpg" alt="Altan Vural İç Mimarlık Logo" />
+    </div>
+    <nav class="site-nav">
+      <a href="#projects">Projeler</a>
+      <a href="#contact">İletişim</a>
+      <a href="https://www.instagram.com/av.icmimarlik/" target="_blank">Instagram</a>
+    </nav>
+  </header>
+
+  <!-- Hero Bölümü -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Altan Vural İç Mimarlık</h1>
+      <p class="tagline">Etkileyici yaşam alanları yaratıyoruz</p>
+    </div>
+  </section>
+
+  <!-- Projeler Galerisi -->
+  <section id="projects" class="gallery-section">
+    <h2>Projeler</h2>
+    <div class="gallery-grid">
+      <img src="images/altan1.jpg" alt="Modern oturma odası tasarımı" />
+      <img src="images/altan2.jpg" alt="Çağdaş mutfak dekorasyonu" />
+      <img src="images/altan3.jpeg" alt="Ofis mekan yenileme" />
+      <img src="images/altan4.jpeg" alt="Şık yatak odası tasarımı" />
+      <!-- ...diğer proje resimleri... -->
+    </div>
+  </section>
+
+  <!-- İletişim Bölümü -->
+  <section id="contact" class="contact-section">
+    <h2>İletişim</h2>
+    <p>Alanınızı dönüştürmek ister misiniz? Aşağıdaki formu doldurun veya iletişim bilgileri üzerinden ulaşın:</p>
+    <ul class="contact-info">
+      <li>E-posta: <a href="mailto:altanvuralicmimarlik@gmail.com">altanvuralicmimarlik@gmail.com</a></li>
+      <li>Telefon: <a href="tel:+905530759718">+90 553 075 97 18</a></li>
+    </ul>
+    <form id="contactForm" class="contact-form">
+      <div class="form-field">
+        <label for="name">Ad</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="form-field">
+        <label for="email">E-posta</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-field">
+        <label for="message">Mesaj</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Mesaj Gönder</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Altan Vural İç Mimarlık.</p>
+    <p>Instagram’da takip edin: <a href="https://www.instagram.com/av.icmimarlik/" target="_blank">av.icmimarlik</a></p>
+  </footer>
+
+  <!-- Harici JS Dosyası -->
+  <script src="contact.js"></script>
+</body>
+</html>
