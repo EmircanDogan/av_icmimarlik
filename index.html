@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Altan Vural İç Mimarlık</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Başlık ve Menü -->
   <header class="site-header">
     <div class="logo">
-      <img src="images/altanlogo.jpg" alt="Altan Vural İç Mimarlık Logo" />
+      <img src="images/altanlogo.jpg" alt="Altan Vural İç Mimarlık Logo">
     </div>
     <nav class="site-nav">
       <a href="#projects">Projeler</a>
@@ -33,35 +33,36 @@
   <section id="projects" class="gallery-section">
     <h2>Projeler</h2>
     <div class="gallery-grid">
-      <img src="images/altan1.jpg" alt="Modern oturma odası tasarımı" />
-      <img src="images/altan2.jpg" alt="Çağdaş mutfak dekorasyonu" />
-      <img src="images/altan3.jpeg" alt="Ofis mekan yenileme" />
-      <img src="images/altan4.jpeg" alt="Şık yatak odası tasarımı" />
-      <!-- ...diğer proje resimleri... -->
+      <img src="images/altan1.jpg" alt="Modern oturma odası tasarımı">
+      <img src="images/altan2.jpg" alt="Çağdaş mutfak dekorasyonu">
+      <img src="images/altan3.jpeg" alt="Ofis mekan yenileme">
+      <img src="images/altan4.jpeg" alt="Şık yatak odası tasarımı">
     </div>
   </section>
 
-  <!-- İletişim Bölümü -->
-  <!-- İletişim Bölümü: Formspree Başlatıldı -->
+  <!-- İletişim Bölümü: AJAX ile Formspree -->
   <section id="contact" class="contact-section">
     <h2>İletişim</h2>
     <p>Alanınızı dönüştürmek ister misiniz? Aşağıdaki formu doldurun:</p>
-    <form action="https://formspree.io/f/xkgrpbrd" method="POST" class="contact-form">
-      <!-- _subject: E-posta konu satırı için -->
+    <form id="contactForm" class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+      <!-- Formspree _subject -->
       <input type="hidden" name="_subject" value="Yeni mesaj: Altan Vural İç Mimarlık">
+
       <div class="form-field">
         <label for="name">Ad</label>
-        <input type="text" id="name" name="name" required />
+        <input type="text" id="name" name="name" required>
       </div>
       <div class="form-field">
         <label for="email">E-posta</label>
-        <input type="email" id="email" name="email" required />
+        <input type="email" id="email" name="email" required>
       </div>
       <div class="form-field">
         <label for="message">Mesaj</label>
         <textarea id="message" name="message" rows="4" required></textarea>
       </div>
+
       <button type="submit" class="btn-submit">Mesaj Gönder</button>
+      <p id="formStatus" class="form-status"></p>
     </form>
   </section>
 
@@ -71,7 +72,37 @@
     <p>Instagram’da takip edin: <a href="https://www.instagram.com/av.icmimarlik/" target="_blank">av.icmimarlik</a></p>
   </footer>
 
-  <!-- Harici JS Dosyası -->
-  <script src="contact.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      const status = document.getElementById('formStatus');
+
+      form.addEventListener('submit', function(ev) {
+        ev.preventDefault();
+        const data = new FormData(form);
+        fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            status.innerText = 'Mesajınız başarıyla gönderildi!';
+            status.style.color = '#0f0';
+            form.reset();
+          } else {
+            response.json().then(data => {
+              status.innerText = data.error || 'Gönderim esnasında bir hata oluştu.';
+              status.style.color = '#f00';
+            });
+          }
+        }).catch(error => {
+          status.innerText = 'Gönderim yapılamadı. Lütfen tekrar deneyin.';
+          status.style.color = '#f00';
+        });
+      });
+    });
+  </script>
 </body>
 </html>

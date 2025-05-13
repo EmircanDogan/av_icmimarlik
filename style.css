@@ -1,3 +1,4 @@
+/* Genel Ayarlar */
 body {
   margin: 0;
   font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
@@ -33,8 +34,38 @@ a {
 .site-header .logo img {
   max-height: 50px;
 }
+/* Navigation Bar */
+.site-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5em;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.site-nav::-webkit-scrollbar {
+  display: none;
+}
 .site-nav a {
-  margin-left: 1.5em;
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.2em;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+.site-nav a + a {
+  margin-left: 1em;
+}
+.site-nav a:hover {
+  background: #333;
+  color: #fff;
+}
+.site-header .logo img {
+  max-height: 50px;
+}
+.site-nav a {
+  margin-left: 1em;
   font-weight: 700;
   font-size: 1.2em;
   padding: 0.4em 0.6em;
@@ -164,32 +195,47 @@ a {
   background: #e0e0e0;
 }
 
+/* Status Mesajı */
+.form-status {
+  margin-top: 1em;
+  font-size: 0.95em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .site-header {
+    padding: 0.5em 1em;
+  }
+  .site-nav a {
+    margin: 0 0.5em;
+    font-size: 1em;
+    padding: 0.3em 0.5em;
+  }
+  .hero-content h1 {
+    font-size: 1.8em;
+  }
+  .hero-content .tagline {
+    font-size: 1em;
+  }
+}
+
 /* Footer */
 .site-footer {
   background: #000;
   color: #777;
   text-align: center;
   padding: 2em;
-  font-size: 0.9em;
+  width: 100%;
+  box-sizing: border-box;
+}
+.site-footer p {
+  margin: 0.2em 0;
 }
 .site-footer a {
   color: #f0f0f0;
+  text-decoration: none;
   font-weight: 600;
 }
-
-/* Responsive */
-@media (max-width: 600px) {
-  .site-header {
-    flex-direction: column;
-    padding: 1em;
-  }
-  .site-nav a {
-    margin: 0 0.5em;
-  }
-  .hero-content h1 {
-    font-size: 2em;
-  }
-  .hero-content .tagline {
-    font-size: 1em;
-  }
+.site-footer a:hover {
+  text-decoration: underline;
 }
