@@ -42,14 +42,13 @@
   </section>
 
   <!-- İletişim Bölümü -->
+  <!-- İletişim Bölümü: Formspree Başlatıldı -->
   <section id="contact" class="contact-section">
     <h2>İletişim</h2>
-    <p>Alanınızı dönüştürmek ister misiniz? Aşağıdaki formu doldurun veya iletişim bilgileri üzerinden ulaşın:</p>
-    <ul class="contact-info">
-      <li>E-posta: <a href="mailto:altanvuralicmimarlik@gmail.com">altanvuralicmimarlik@gmail.com</a></li>
-      <li>Telefon: <a href="tel:+905530759718">+90 553 075 97 18</a></li>
-    </ul>
-    <form id="contactForm" class="contact-form">
+    <p>Alanınızı dönüştürmek ister misiniz? Aşağıdaki formu doldurun:</p>
+    <form action="https://formspree.io/f/xkgrpbrd" method="POST" class="contact-form">
+      <!-- _subject: E-posta konu satırı için -->
+      <input type="hidden" name="_subject" value="Yeni mesaj: Altan Vural İç Mimarlık">
       <div class="form-field">
         <label for="name">Ad</label>
         <input type="text" id="name" name="name" required />
